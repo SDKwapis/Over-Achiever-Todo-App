@@ -14,3 +14,31 @@ body {
 .task-card:hover {
   cursor: grab;
 }
+
+.task-title {
+  background-color: rgb(227, 227, 227);
+  font-size: xx-large;
+  padding: 5px;
+}
+
+.task-card.past-due {
+  background-color: red; 
+  color: white;
+}
+
+.task-title.past-due {
+  background-color: rgb(193, 0, 0);
+  color: white;
+  font-size: xx-large;
+}
+
+.task-card.due-today {
+  background-color: yellow; 
+  color: white;
+}
+
+.task-title.due-today {
+  background-color: rgb(222, 222, 2);
+  color: white;
+  font-size: xx-large;
+}
