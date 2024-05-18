@@ -71,6 +71,15 @@ document.addEventListener('DOMContentLoaded', () => {
       taskDueDate.className = 'card-text';
       taskDueDate.textContent = `${task.dueDate}`;
       taskCardBody.appendChild(taskDueDate);
+
+      const deleteButton = document.createElement('button');
+      deleteButton.className = 'btn btn-danger btn-sm';
+      deleteButton.textContent = 'Delete';
+      taskCardBody.appendChild(deleteButton);
+
+      deleteButton.addEventListener('click', () => {
+        taskCard.remove();
+      });
   
       taskCard.appendChild(taskCardBody);
 
@@ -85,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (taskDueDateObj < currentDate) { 
         taskCard.classList.add('past-due');
         taskTitle.classList.add('past-due');
-      } else if (taskDueDateObj == currentDate) {
+      } else if (taskDueDateObj === currentDate) {
         taskCard.classList.add('due-today');
         taskTitle.classList.add('due-today');
       }
