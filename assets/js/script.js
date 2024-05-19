@@ -2,13 +2,7 @@
 let storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let nextId = JSON.parse(localStorage.getItem("nextId")) || 1;
 
-// Function to generate a unique task id
-function generateTaskId() {
-    const idNum = Math.floor(Date.now() / 1000);
-    console.log(idNum);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     // Adds the jQuery date picker
     $(function() {
       $("#dueDate").datepicker({
@@ -17,14 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
     const taskForm = document.getElementById('taskForm');
-    // Adjust the selector based on where you want to append tasks
     const taskList = document.getElementById('todo-cards');
   
     // Load tasks from local storage
     loadTasks();
 
     // Function to handle form submission and add a new task
-    document.getElementById('submitTaskBtn').addEventListener('click', (event) => {
+    document.getElementById('submitTaskBtn').addEventListener('click', function(event) {
       event.preventDefault();
   
       const title = document.getElementById('recipient-name').value;
@@ -87,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
       deleteButton.textContent = 'Delete';
       taskCardBody.appendChild(deleteButton);
 
-      deleteButton.addEventListener('click', () => {
+      deleteButton.addEventListener('click', function() {
         taskCard.remove();
         deleteTask(task.id);
       });
@@ -122,47 +115,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to delete a task from local storage
     function deleteTask(taskId) {
-      let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-      tasks = tasks.filter(task => task.id !== taskId);
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        tasks = tasks.filter(function(task) {
+          return task.id !== taskId;
+        });
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      }
 
     // Function to load tasks from local storage and display them
     function loadTasks() {
       let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-      tasks.forEach(task => {
+      tasks.forEach(function(task) {
         const taskCard = createTaskCard(task);
         taskList.appendChild(taskCard);
       });
     }
 });
-
-  
-  
-
-
-// // Todo: create a function to render the task list and make cards draggable
-// function renderTaskList() {
-
-// }
-
-// // Todo: create a function to handle adding a new task
-// function handleAddTask(event){
-
-// }
-
-// // Todo: create a function to handle deleting a task
-// function handleDeleteTask(event){
-
-// }
-
-// // Todo: create a function to handle dropping a task into a new status lane
-// function handleDrop(event, ui) {
-
-// }
-
-// // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
-// $(document).ready(function () {
-
-// });
-
