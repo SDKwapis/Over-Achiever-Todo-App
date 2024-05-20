@@ -130,4 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
         taskList.appendChild(taskCard);
       });
     }
+
+
+ // Make cards sortable
+ $(".sortable-list").sortable({
+  connectWith: ".sortable-list",
+  items: ".task-card",
+  placeholder: "sortable-placeholder"
+})
 });
