@@ -12,7 +12,9 @@ Assistance in creating this site and its function's was made possible primarily 
 
 ## Visuals
 
-<img src="./assets/images/todos.png">
+<img src="./assets/Images/todos.png">
+
+https://sdkwapis.github.io/Over-Achiever-Todo-App/
 
 ## Contributing
 
